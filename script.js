@@ -1,3 +1,18 @@
+// Defina a senha para acesso
+const PASSWORD = '2009';
+
+// Função para verificar a senha
+function checkPassword() {
+    const passwordInput = document.getElementById('password').value;
+    if (passwordInput === PASSWORD) {
+        document.getElementById('loginContainer').style.display = 'none';
+        document.getElementById('protectedContent').classList.remove('hidden');
+    } else {
+        alert('Senha incorreta!');
+    }
+}
+
+// Função para abrir as abas
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -11,66 +26,66 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+// Função para mostrar o campo de letra do hino
+function showLyricsField() {
+    const lyricsField = document.getElementById('song-lyrics');
+    if (lyricsField.style.display === 'none' || lyricsField.style.display === '') {
+        lyricsField.style.display = 'block';
+    }
+}
 
+// Função para adicionar um hino
 function addHymn() {
-    var title = document.getElementById('song-title').value;
-    var lyrics = document.getElementById('song-lyrics').value;
+    const title = document.getElementById('song-title').value;
+    const lyrics = document.getElementById('song-lyrics').value;
+
     if (title && lyrics) {
-        var list = document.getElementById('hymnList');
-        var li = document.createElement('li');
-        li.innerHTML = `<strong>${title}</strong><br>${lyrics}
-                        <button class="delete-hymn" onclick="deleteHymn(this)">Excluir</button>
-                        <button onclick="toggleLyrics(this)">Mostrar/Ocultar Letra</button>`;
-        list.appendChild(li);
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>${title}</strong><br><span class="lyrics">${lyrics}</span>
+                              <button onclick="removeHymn(this)">Excluir</button>`;
+        document.getElementById('hymnList').appendChild(listItem);
+
+        // Limpar campos após adicionar
         document.getElementById('song-title').value = '';
         document.getElementById('song-lyrics').value = '';
     } else {
-        alert('Por favor, preencha todos os campos.');
+        alert('Preencha todos os campos.');
     }
 }
 
-function deleteHymn(button) {
-    if (confirm('Tem certeza de que deseja excluir este hino?')) {
-        var listItem = button.parentElement;
-        listItem.parentElement.removeChild(listItem);
-    }
+// Função para remover um hino
+function removeHymn(button) {
+    const item = button.parentNode;
+    item.parentNode.removeChild(item);
 }
 
+// Função para adicionar uma observação
 function addObservation() {
-    var title = document.getElementById('obs-title').value;
-    var content = document.getElementById('obs-content').value;
+    const title = document.getElementById('obs-title').value;
+    const content = document.getElementById('obs-content').value;
+
     if (title && content) {
-        var list = document.getElementById('obsList');
-        var li = document.createElement('li');
-        li.innerHTML = `<strong>${title}</strong><br>${content}
-                        <button class="delete-hymn" onclick="deleteObservation(this)">Excluir</button>`;
-        list.appendChild(li);
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>${title}</strong><br><span>${content}</span>
+                              <button onclick="removeObservation(this)">Excluir</button>`;
+        document.getElementById('obsList').appendChild(listItem);
+
+        // Limpar campos após adicionar
         document.getElementById('obs-title').value = '';
         document.getElementById('obs-content').value = '';
     } else {
-        alert('Por favor, preencha todos os campos.');
+        alert('Preencha todos os campos.');
     }
 }
 
-function deleteObservation(button) {
-    if (confirm('Tem certeza de que deseja excluir esta observação?')) {
-        var listItem = button.parentElement;
-        listItem.parentElement.removeChild(listItem);
-    }
+// Função para remover uma observação
+function removeObservation(button) {
+    const item = button.parentNode;
+    item.parentNode.removeChild(item);
 }
 
-function toggleLyrics(button) {
-    var li = button.parentElement;
-    var lyrics = li.childNodes[1];
-    if (lyrics.style.display === "none" || lyrics.style.display === "") {
-        lyrics.style.display = "block";
-        button.textContent = "Ocultar Letra";
-    } else {
-        lyrics.style.display = "none";
-        button.textContent = "Mostrar Letra";
-    }
-}
-
-function showLyricsField() {
-    document.getElementById('song-lyrics').style.display = 'block';
-}
+// Inicializa a proteção de senha e exibe o conteúdo protegido se a senha estiver correta
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se o conteúdo está protegido
+    document.getElementById('loginButton').addEventListener('click', checkPassword);
+});
