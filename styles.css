@@ -73,8 +73,18 @@ h1, h2, h3 {
     background-color: #00416B; /* IBR Dark Blue */ 
     background-image: url('/assets/fundo.svgt.svg');/* Substitua pelo caminho para sua imagem SVG */
     background-size: contain; /* Faz com que a imagem cubra toda a área */
-    background-position: center; /* Centraliza a imagem */
+    background-position: center center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição da imagem */
+    padding-top: 0 0; /* Ajuste conforme necessário */
+    padding-bottom: 0; /* Ajuste conforme necessário */
+}
+#loginWrapper {
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente para o formulário */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px; /* Ajuste o tamanho máximo conforme necessário */
 }
 
 #loginForm {
