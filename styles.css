@@ -105,7 +105,7 @@ h1, h2, h3 {
 #loginForm .login-logo {
     width: 40px; /* Ajuste o tamanho conforme necessário */
     height: auto;
-    margin-left: 10px; /* Espaçamento entre o texto e o logo */
+    margin-left: 50%; /* Espaçamento entre o texto e o logo */
 }
 
 #loginForm input, #loginForm button {
