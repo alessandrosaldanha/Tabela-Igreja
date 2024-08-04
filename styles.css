@@ -1,10 +1,22 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Sans+3:ital@0;1&display=swap');
+
+
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif; 
     margin: 0;
     padding: 0;
     background-color: #E6F5FF; /* IBR Bright Blue */
 }
+
+h1, h2, h3 {
+    font-family: 'Signika', sans-serif;
+}
+
 
 /* Estilos para a tela de login */
 #loginContainer {
@@ -16,10 +28,24 @@ body {
 }
 
 #loginForm {
-    background: #FEFEFE; /* IBR Snow */
+    background: #00416B; /* IBR Snow */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#loginForm h2 {
+    display: flex;
+    align-items: center;
+    font-family: 'Signika', sans-serif; /* Fonte para títulos */
+    color: #00416B; /* IBR Dark Blue */
+    margin: 0; /* Remove margens padrão */
+}
+
+#loginForm .login-logo {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin-left: 10px; /* Espaçamento entre o texto e o logo */
 }
 
 #loginForm input, #loginForm button {
@@ -38,6 +64,59 @@ body {
 #loginForm button:hover {
     background-color: #407190; /* IBR Deep Blue */
 }
+/* Estilos para a tela de login */
+#loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #00416B; /* IBR Dark Blue */ 
+    background-image: url('/assets/fundo.svgt.svg');/* Substitua pelo caminho para sua imagem SVG */
+    background-size: contain; /* Faz com que a imagem cubra toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+}
+
+#loginForm {
+    background: #00416B; /* IBR Snow */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#loginForm h2 {
+    display: flex;
+    align-items: center;
+    font-family: 'Signika', sans-serif; /* Fonte para títulos */
+    color: #ffffff; /* IBR Dark Blue */
+    margin: 0; /* Remove margens padrão */
+}
+
+#loginForm .login-logo {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin-left: 10px; /* Espaçamento entre o texto e o logo */
+}
+
+#loginForm input, #loginForm button {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #00416B; /* IBR Dark Blue */
+}
+
+#loginForm button {
+    background-color: #ffffff; /* IBR Dark Blue */
+    color: #00416B; /* IBR Snow */
+    border: none;
+}
+
+#loginForm button:hover {
+    background-color: #407190; /* IBR Deep Blue */
+}
+
+/* ATENÇÃO */
+/* Estilos para a tela de login */
 
 /* Estilos para o conteúdo protegido */
 .hidden {
@@ -241,3 +320,5 @@ textarea {
         width: calc(100% - 10px); /* Ajusta a largura dos inputs em telas muito pequenas */
     }
 }
+
+
