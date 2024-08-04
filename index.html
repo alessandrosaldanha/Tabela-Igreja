@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escala com Hinos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="schedule-section">
+            <h1>Escala</h1>
+            <table id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Manhã (9:00)</th>
+                        <th>Noite (18:30)</th>
+                        <th>Observações</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td contenteditable="true">4 de agosto</td>
+                        <td contenteditable="true">Alexandre - Alan</td>
+                        <td contenteditable="true">Kelly - Nicole</td>
+                        <td contenteditable="true">Se alguém precisar trocar, avise antes.</td>
+                        <td><button onclick="editRow(this)">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">11 de agosto</td>
+                        <td contenteditable="true">Alexandre - Thales</td>
+                        <td contenteditable="true">Gabriel - Nicole</td>
+                        <td contenteditable="true">Em caso de não comparecimento, avise.</td>
+                        <td><button onclick="editRow(this)">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">18 de agosto</td>
+                        <td contenteditable="true">Alexandre - Gabriel</td>
+                        <td contenteditable="true">Alan - Kelly</td>
+                        <td contenteditable="true">Tente informar sobre trocas até sábado.</td>
+                        <td><button onclick="editRow(this)">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">25 de agosto</td>
+                        <td contenteditable="true">Nicole - Thales</td>
+                        <td contenteditable="true">Gabriel - Thales</td>
+                        <td contenteditable="true">Confirmar presença com antecedência.</td>
+                        <td><button onclick="editRow(this)">Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seção de Louvores -->
+        <div class="louvores-section">
+            <h2>Louvores</h2>
+            <div class="tab">
+                <button class="tablink" onclick="openTab(event, 'AdicionarHinos')">Adicionar Hinos</button>
+                <button class="tablink" onclick="openTab(event, 'Observacoes')">Observações</button>
+            </div>
+
+            <div id="AdicionarHinos" class="tabcontent">
+                <h3>Adicionar Hinos</h3>
+                <input type="text" id="song-title" placeholder="Nome do Hino" onfocus="showLyricsField()">
+                <textarea id="song-lyrics" placeholder="Letra do Hino" style="display: none;"></textarea>
+                <button onclick="addHymn()">Adicionar Hino</button>
+
+                <!-- Lista de Hinos Adicionados -->
+                <ul id="hymnList"></ul>
+            </div>
+
+            <div id="Observacoes" class="tabcontent">
+                <h3>Observações</h3>
+                <input type="text" id="obs-title" placeholder="Título da Observação">
+                <textarea id="obs-content" placeholder="Conteúdo da Observação"></textarea>
+                <button onclick="addObservation()">Adicionar Observação</button>
+                <ul id="obsList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
